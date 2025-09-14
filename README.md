@@ -15,7 +15,7 @@
 
 ![](./public/image/screen.png)
 
-## View live preview [here](https://<domain>.app/).
+## View live preview [here](https://anujchauhan.vercel.app).
 
 ---
 
