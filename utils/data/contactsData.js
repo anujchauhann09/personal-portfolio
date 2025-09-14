@@ -1,7 +1,7 @@
 export const contactsData = {
     email: 'heyanujchauhan@gmail.com',
     phone: '+91-8439560323',
-    address: 'Bhaniyawala, Mahadev Puram Colony, Lane no. 5, Doiwala - 248140, India',
+    address: 'Bhaniyawala, Doiwala - 248140, India',
     github: 'https://github.com/anujchauhann09',
     linkedIn: 'https://www.linkedin.com/in/anujchauhann',
     twitter: 'https://x.com/anujchauhannn', 
