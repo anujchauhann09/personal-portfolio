@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
@@ -7,11 +6,10 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import "./css/card.scss";
 import "./css/globals.scss";
+import ScrollToTop from "./components/helper/scroll-to-top";
+import ClientOnlyWrapper from "./components/helper/client-only-wrapper.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
-
-// Dynamically import ScrollToTop to avoid SSR issues
-const ScrollToTop = dynamic(() => import("./components/helper/scroll-to-top"), { ssr: false });
 
 export const metadata = {
   title: "Portfolio of Anuj Chauhan - Aspiring Software Engineer",
@@ -27,7 +25,9 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
           <Navbar />
           {children}
-          <ScrollToTop />
+          <ClientOnlyWrapper>
+            <ScrollToTop />
+          </ClientOnlyWrapper>
         </main>
         <Footer />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
