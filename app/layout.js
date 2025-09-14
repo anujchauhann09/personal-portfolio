@@ -1,5 +1,3 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
