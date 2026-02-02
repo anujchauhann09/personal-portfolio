@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaWindows, FaLinux, FaChrome, FaAndroid } from "react-icons/fa";
 import { SiVisualstudiocode, SiPycharm } from "react-icons/si";
