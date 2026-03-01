@@ -5,6 +5,8 @@ import Particle from "../Particle";
 import codeTutor from "../../Assets/Projects/codeTutor.png";
 import bytrix from "../../Assets/Projects/bytrix.png";
 import brainTumor from "../../Assets/Projects/brainTumor.png";
+import scriptory from "../../Assets/Projects/scriptory.png";
+import studentCompanion from "../../Assets/Projects/studentCompanion.png";
 
 function Projects() {
   return (
@@ -26,6 +28,28 @@ function Projects() {
               description="CodeTutorAI is an AI-powered programming tutor designed to help learners understand complex coding concepts more effectively. It provides contextual explanations, step-by-step reasoning, and debugging assistance by analyzing user queries and code snippets. Built with Next.js and integrated with LLM-based APIs through REST services."
               ghLink="https://github.com/anujchauhann09/code-tutor-ai"
               demoLink="https://codetutorai.vercel.app"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={scriptory}
+              isBlog={false}
+              title="Scriptory"
+              description="A clean, elegant, and performant blogging platform built with React, Tailwind CSS, and Framer Motion. Designed with a focus on typography and reading experience, inspired by Medium but with a unique, minimalist aesthetic."
+              ghLink="https://github.com/anujchauhann09/scriptory"
+              demoLink="https://scriptory.vercel.app"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={studentCompanion}
+              isBlog={false}
+              title="Student Companion"
+              description="Intent-driven Generative UI Student Assistant built with Tambo, React, and Next.js that dynamically adapts its interface based on student goals like planning, revision, focus, and progress tracking."
+              ghLink="https://github.com/anujchauhann09/student-companion"
+              demoLink="https://mystudentcompanion.vercel.app"
             />
           </Col>
 
