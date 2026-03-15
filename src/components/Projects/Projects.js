@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
+import employrix from "../../Assets/Projects/employrix.png";
 import codeTutor from "../../Assets/Projects/codeTutor.png";
 import bytrix from "../../Assets/Projects/bytrix.png";
 import brainTumor from "../../Assets/Projects/brainTumor.png";
@@ -20,6 +21,17 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={employrix}
+              isBlog={false}
+              title="Employrix"
+              description="Employrix is a full-stack job portal system that connects job seekers with employers through an intuitive platform. It supports role-based access for candidates and recruiters, enabling job posting, application tracking, and profile management. Built with a focus on seamless user experience and real-time updates."
+              ghLink="https://github.com/anujchauhann09/job-listing-portal"
+              demoLink="https://employrix.vercel.app"
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={codeTutor}
