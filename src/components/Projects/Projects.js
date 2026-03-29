@@ -5,9 +5,10 @@ import Particle from "../Particle";
 import employrix from "../../Assets/Projects/employrix.png";
 import codeTutor from "../../Assets/Projects/codeTutor.png";
 import bytrix from "../../Assets/Projects/bytrix.png";
-import brainTumor from "../../Assets/Projects/brainTumor.png";
 import scriptory from "../../Assets/Projects/scriptory.png";
 import studentCompanion from "../../Assets/Projects/studentCompanion.png";
+import multiRetrieverRag from "../../Assets/Projects/multiRetrieverRag.png";
+import codeSage from "../../Assets/Projects/codeSage.png";
 
 function Projects() {
   return (
@@ -78,11 +79,22 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={brainTumor}
+              imgPath={multiRetrieverRag}
               isBlog={false}
-              title="Brain Tumor Detection"
-              description="Brain Tumor Detection is an AI-assisted medical imaging project focused on analyzing MRI scans to support early diagnosis. Using CNN-based models implemented in Python with NumPy and Scikit-learn, the system identifies and highlights potential tumor regions while generating confidence scores."
-              ghLink=""
+              title="Multi Retriever RAG"
+              description="Production-ready Retrieval-Augmented Generation system that ingests multiple source types — PDFs, CSVs, and websites — and answers natural language queries. Built with FastAPI, LangChain, Pinecone, and Google Gemini, with vectors isolated per source type using Pinecone namespaces."
+              ghLink="https://github.com/anujchauhann09/multi-retriever-rag"
+              demoLink=""
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={codeSage}
+              isBlog={false}
+              title="CodeSage"
+              description="Full-stack RAG application that ingests a GitHub repository or ZIP archive and lets you query it conversationally in plain English. Every answer is grounded in your real source code with file-level citations. Built with FastAPI, Next.js, Pinecone, and Google Gemini."
+              ghLink="https://github.com/anujchauhann09/code-sage"
               demoLink=""
             />
           </Col>
