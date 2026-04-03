@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
+import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import {
   AiFillStar,
   AiOutlineHome,
@@ -12,21 +12,25 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 
-import { CgFileDocument } from "react-icons/cg";
-
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
+  useEffect(() => {
+    function scrollHandler() {
+      if (window.scrollY >= 20) {
+        updateNavbar(true);
+      } else {
+        updateNavbar(false);
+      }
     }
-  }
 
-  window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
 
   return (
     <Navbar
@@ -37,59 +41,50 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center">
-  <span className="brand-text">
-    Anuj <span className="brand-accent">Chauhan</span>
-  </span>
-</Navbar.Brand>
+          <span className="brand-text">
+            Anuj <span className="brand-accent">Chauhan</span>
+          </span>
+        </Navbar.Brand>
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={() => updateExpanded(expand ? false : "expanded")}
         >
           <span></span>
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
+          <Nav className="ms-auto">
+
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                <AiOutlineHome /> Home
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
+                <AiOutlineUser /> About
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
+              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
+                <AiOutlineFundProjectionScreen /> Projects
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+              <Nav.Link as={Link} to="/resume" onClick={() => updateExpanded(false)}>
+                <CgFileDocument /> Resume
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link as={Link} to="https://scriptory.vercel.app" onClick={() => updateExpanded(false)}>
+                <CgFileDocument /> Blogs
               </Nav.Link>
             </Nav.Item>
 
@@ -103,6 +98,7 @@ function NavBar() {
                 <AiFillStar style={{ fontSize: "1.1em" }} />
               </Button>
             </Nav.Item>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
