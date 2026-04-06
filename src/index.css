@@ -1,11 +1,60 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit&family=PT+Mono&display=swap");
+:root {
+  --bg: #0B0B0F;
+  --bg-card: #111115;
+  --bg-card-2: #15151B;
+  --accent-green: #00FF94;
+  --accent-pink: #FF2E88;
+  --accent-yellow: #FFD600;
+  --accent-cyan: #00D4FF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --border: rgba(255,255,255,0.06);
+  --radius: 16px;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
 
 body {
-  margin: 0;
-  font-family: "PT Mono", monospace !important;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  overflow-x: hidden;
 }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent-green); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+::-moz-selection { background: rgba(0,255,148,0.2); color: var(--accent-green); }
+::selection     { background: rgba(0,255,148,0.2); color: var(--accent-green); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a { -webkit-tap-highlight-color: transparent; }
+
+.accent-green { color: var(--accent-green); }
+.accent-pink  { color: var(--accent-pink); }
+.accent-yellow{ color: var(--accent-yellow); }
+.text-muted-custom { color: var(--text-secondary); }

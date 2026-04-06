@@ -1,109 +1,117 @@
 import { useState, useEffect } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork, CgFileDocument } from "react-icons/cg";
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { AiFillGithub } from "react-icons/ai";
+import { FaLinkedinIn } from "react-icons/fa";
 
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+const links = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Projects", to: "/project" },
+  { label: "Resume", to: "/resume" },
+];
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    function scrollHandler() {
-      if (window.scrollY >= 20) {
-        updateNavbar(true);
-      } else {
-        updateNavbar(false);
-      }
-    }
-
-    window.addEventListener("scroll", scrollHandler);
-
-    return () => {
-      window.removeEventListener("scroll", scrollHandler);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => { setMobileOpen(false); }, [location]);
+
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex align-items-center">
-          <span className="brand-text">
-            Anuj <span className="brand-accent">Chauhan</span>
-          </span>
-        </Navbar.Brand>
+    <>
+      <ScrollProgress />
 
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => updateExpanded(expand ? false : "expanded")}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
+      <nav className={`navbar-custom ${scrolled ? "scrolled" : ""}`}>
+        <Link to="/" className="nav-brand">
+          Anuj<span>.</span>
+        </Link>
 
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
-                <AiOutlineUser /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
-                <AiOutlineFundProjectionScreen /> Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="/resume" onClick={() => updateExpanded(false)}>
-                <CgFileDocument /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link as={Link} to="https://scriptory.vercel.app" onClick={() => updateExpanded(false)}>
-                <CgFileDocument /> Blogs
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/anujchauhann09/personal-portfolio"
-                target="_blank"
-                className="fork-btn-inner"
+        <ul className="nav-links">
+          {links.map((l) => (
+            <li key={l.to}>
+              <Link
+                to={l.to}
+                className={location.pathname === l.to ? "active" : ""}
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
+                {l.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a href="https://github.com/anujchauhann09" target="_blank" rel="noreferrer" className="nav-resume-btn">
+              GitHub
+            </a>
+          </li>
+        </ul>
 
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <button
+          className="nav-hamburger"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          <span style={{ transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+          <span style={{ opacity: mobileOpen ? 0 : 1 }} />
+          <span style={{ transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="nav-mobile"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {links.map((l, i) => (
+              <motion.div
+                key={l.to}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.07 }}
+              >
+                <Link to={l.to}>{l.label}</Link>
+              </motion.div>
+            ))}
+            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+              <a href="https://github.com/anujchauhann09" target="_blank" rel="noreferrer" style={{ color: "var(--text-secondary)", fontSize: "1.5rem" }}>
+                <AiFillGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/anujchauhann" target="_blank" rel="noreferrer" style={{ color: "var(--text-secondary)", fontSize: "1.5rem" }}>
+                <FaLinkedinIn />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
-export default NavBar;
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <div
+      className="scroll-progress"
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
+
+export default Navbar;
