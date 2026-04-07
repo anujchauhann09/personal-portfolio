@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
+import { SOCIAL_LINKS } from "../constants/personal";
+
+const CONTACT_ICONS = [
+  { href: SOCIAL_LINKS.github, icon: <AiFillGithub />, label: "GitHub" },
+  { href: SOCIAL_LINKS.linkedin, icon: <FaLinkedinIn />, label: "LinkedIn" },
+  { href: SOCIAL_LINKS.email, icon: <HiMail />, label: "Email" },
+];
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -20,8 +27,7 @@ function Footer() {
             Contact
           </div>
           <h2 className="contact-heading">
-            LET'S BUILD
-            <br />
+            LET'S BUILD<br />
             <span style={{ color: "var(--accent-green)" }}>SOMETHING</span>
           </h2>
           <p className="contact-sub">
@@ -29,37 +35,33 @@ function Footer() {
             If you have something worth building, let's talk.
           </p>
           <div className="contact-btns">
-            <a href="mailto:heyanujchauhan@gmail.com" className="btn-glow">
+            <a href={SOCIAL_LINKS.email} className="btn-glow">
               <HiMail /> Say Hello
             </a>
-            <a
-              href="https://www.linkedin.com/in/anujchauhann"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-secondary-custom"
-            >
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="btn-secondary-custom">
               <FaLinkedinIn /> LinkedIn
             </a>
           </div>
           <div className="contact-links">
-            <a href="https://github.com/anujchauhann09" target="_blank" rel="noreferrer" className="contact-link" aria-label="GitHub">
-              <AiFillGithub />
-            </a>
-            <a href="https://www.linkedin.com/in/anujchauhann" target="_blank" rel="noreferrer" className="contact-link" aria-label="LinkedIn">
-              <FaLinkedinIn />
-            </a>
-            <a href="mailto:heyanujchauhan@gmail.com" className="contact-link" aria-label="Email">
-              <HiMail />
-            </a>
+            {CONTACT_ICONS.map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("mailto") ? undefined : "_blank"}
+                rel={href.startsWith("mailto") ? undefined : "noreferrer"}
+                className="contact-link"
+                aria-label={label}
+              >
+                {icon}
+              </a>
+            ))}
           </div>
         </motion.div>
       </section>
 
       <footer>
         <div className="footer-new">
-          <span className="footer-copy">
-            Designed & built by <span>Anuj Chauhan</span>
-          </span>
+          <span className="footer-copy">Designed & built by <span>Anuj Chauhan</span></span>
           <span className="footer-copy">© {year} · All rights reserved</span>
         </div>
       </footer>
