@@ -8,6 +8,7 @@ const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/project" },
+  { label: "Blog", to: null, href: "https://scriptory.vercel.app" },
   { label: "Resume", to: "/resume" },
 ];
 
@@ -35,13 +36,19 @@ function Navbar() {
 
         <ul className="nav-links">
           {links.map((l) => (
-            <li key={l.to}>
-              <Link
-                to={l.to}
-                className={location.pathname === l.to ? "active" : ""}
-              >
-                {l.label}
-              </Link>
+            <li key={l.label}>
+              {l.href ? (
+                <a href={l.href} target="_blank" rel="noreferrer">
+                  {l.label}
+                </a>
+              ) : (
+                <Link
+                  to={l.to}
+                  className={location.pathname === l.to ? "active" : ""}
+                >
+                  {l.label}
+                </Link>
+              )}
             </li>
           ))}
           <li>
@@ -73,12 +80,16 @@ function Navbar() {
           >
             {links.map((l, i) => (
               <motion.div
-                key={l.to}
+                key={l.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07 }}
               >
-                <Link to={l.to}>{l.label}</Link>
+                {l.href ? (
+                  <a href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
+                ) : (
+                  <Link to={l.to}>{l.label}</Link>
+                )}
               </motion.div>
             ))}
             <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>

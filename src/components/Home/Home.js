@@ -16,6 +16,64 @@ const fadeUp = {
   })
 };
 
+const ORBIT_CARDS = [
+  { icon: "🚀", value: "7+ Projects",    label: "Built & Deployed" },
+  { icon: "⚡", value: "Full Stack",      label: "AI · Backend · Frontend" },
+  { icon: "🧠", value: "RAG Systems",     label: "LangChain · Pinecone" },
+  { icon: "🏥", value: "InnovLogic",      label: "SWE Intern 2025" },
+  { icon: "📦", value: "Agentic AI",      label: "Autonomous Pipelines" },
+  { icon: "🎓", value: "MCA",             label: "Graphic Era University" },
+];
+
+function OrbitRing() {
+  const count = ORBIT_CARDS.length;
+  const radius = 210;
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        width: radius * 2,
+        height: radius * 2,
+        top: "50%",
+        left: "50%",
+        marginTop: -(radius),
+        marginLeft: -(radius),
+      }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+    >
+      {ORBIT_CARDS.map((card, i) => {
+        const angle = (i / count) * 360;
+        const rad = (angle * Math.PI) / 180;
+        const x = radius + radius * Math.cos(rad) - 70;
+        const y = radius + radius * Math.sin(rad) - 28;
+
+        return (
+          <motion.div
+            key={i}
+            className="hero-stat-card"
+            style={{
+              position: "absolute",
+              left: x,
+              top: y,
+              width: 140,
+            }}
+            animate={{ rotate: -360 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+          >
+            <span className="hero-stat-icon">{card.icon}</span>
+            <div>
+              <div className="hero-stat-value">{card.value}</div>
+              <div className="hero-stat-label">{card.label}</div>
+            </div>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -25,7 +83,6 @@ function Home() {
         <CursorGlow />
 
         <div className="hero-content">
-          {/* Left */}
           <div>
             <motion.div
               className="hero-tag"
@@ -88,45 +145,17 @@ function Home() {
             </motion.div>
           </div>
 
-          {/* Right */}
           <motion.div
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            <div style={{ position: "relative", display: "inline-block" }}>
+            <div style={{ position: "relative", width: 340, height: 340 }}>
               <div className="hero-orb">
                 <img src={myImg} alt="Anuj Chauhan" className="hero-avatar" />
               </div>
-
-              <motion.div
-                className="hero-stat-card"
-                style={{ position: "absolute", top: "8%", right: "-140px" }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <span className="hero-stat-icon">🚀</span>
-                <div>
-                  <div className="hero-stat-value">7+ Projects</div>
-                  <div className="hero-stat-label">Built & Deployed</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="hero-stat-card"
-                style={{ position: "absolute", bottom: "12%", left: "-150px" }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1 }}
-              >
-                <span className="hero-stat-icon">⚡</span>
-                <div>
-                  <div className="hero-stat-value">Full Stack</div>
-                  <div className="hero-stat-label">AI · Backend · Frontend</div>
-                </div>
-              </motion.div>
+              <OrbitRing />
             </div>
           </motion.div>
         </div>

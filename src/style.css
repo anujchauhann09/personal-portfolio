@@ -1,6 +1,6 @@
 #preloader {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0; /* fallback for inset */
+  top: 0; right: 0; bottom: 0; left: 0; 
   inset: 0;
   z-index: 999999;
   background: var(--bg);
@@ -429,6 +429,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   position: relative;
+  overflow: visible;
 }
 .hero-orb {
   width: 340px; height: 340px;
@@ -477,18 +478,18 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 0.7rem 1rem;
+  padding: 0.55rem 0.85rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 10px;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  white-space: nowrap;
-  max-width: 180px;
+  gap: 8px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: rgba(17,17,21,0.85);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,255,148,0.08);
 }
 .hero-stat-icon { font-size: 1.2rem; line-height: 1; }
 .hero-stat-value { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
@@ -689,7 +690,6 @@
   overflow: hidden;
   height: 200px;
   background: var(--bg-card-2);
-  /* Prevent image from overflowing */
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
@@ -1068,9 +1068,9 @@
 
 .cursor-glow {
   position: fixed;
-  width: 400px; height: 400px;
+  width: 500px; height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,148,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,255,148,0.12) 0%, rgba(0,255,148,0.04) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   -webkit-transform: translate(-50%, -50%);
