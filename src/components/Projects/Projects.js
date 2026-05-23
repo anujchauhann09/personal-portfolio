@@ -8,8 +8,25 @@ import scriptory from "../../Assets/Projects/scriptory.png";
 import studentCompanion from "../../Assets/Projects/studentCompanion.png";
 import multiRetrieverRag from "../../Assets/Projects/multiRetrieverRag.png";
 import codeSage from "../../Assets/Projects/codeSage.png";
+import symptIQ from "../../Assets/Projects/symptiq.png";
 
 const projects = [
+  {
+    img: symptIQ,
+    title: "SymptIQ",
+    desc: "AI-powered clinical narrative and symptom intelligence platform for healthcare tracking, timeline insights, doctor-ready reports, and RAG-based clinical copilot assistance.",
+    tags: [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "Gemini",
+      "Pinecone",
+      "RAG"
+    ],
+    gh: "https://github.com/anujchauhann09/clinical-narrative-platform",
+    demo: "https://symptiq.vercel.app",
+    badge: "Healthcare AI",
+  },
   {
     img: employrix,
     title: "Employrix",
@@ -17,7 +34,7 @@ const projects = [
     tags: ["Next.js", "Node.js", "PostgreSQL", "REST API"],
     gh: "https://github.com/anujchauhann09/job-listing-portal",
     demo: "https://employrix.vercel.app",
-    badge: null,
+    badge: "Full Stack",
   },
   {
     img: codeTutor,
@@ -26,7 +43,7 @@ const projects = [
     tags: ["React", "LLM", "REST API", "JavaScript"],
     gh: "https://github.com/anujchauhann09/code-tutor-ai",
     demo: "https://codetutorai.vercel.app",
-    badge: null,
+    badge: "AI Assistant",
   },
   {
     img: scriptory,
@@ -35,7 +52,7 @@ const projects = [
     tags: ["React", "Tailwind CSS", "TypeScript"],
     gh: "https://github.com/anujchauhann09/scriptory",
     demo: "https://scriptory.vercel.app",
-    badge: null,
+    badge: "Content Platform",
   },
   {
     img: studentCompanion,
@@ -44,7 +61,7 @@ const projects = [
     tags: ["Next.js", "TypeScript", "Tambo", "Generative UI"],
     gh: "https://github.com/anujchauhann09/student-companion",
     demo: "https://mystudentcompanion.vercel.app",
-    badge: null,
+    badge: "Generative UI",
   },
   {
     img: bytrix,
@@ -53,7 +70,7 @@ const projects = [
     tags: ["Next.js", "Django", "PostgreSQL", "Redis"],
     gh: "https://github.com/anujchauhann09/bytrix",
     demo: null,
-    badge: null,
+    badge: "File Compression & Conversion",
   },
   {
     img: multiRetrieverRag,
