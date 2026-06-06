@@ -9,6 +9,7 @@ import studentCompanion from "../../Assets/Projects/studentCompanion.png";
 import multiRetrieverRag from "../../Assets/Projects/multiRetrieverRag.png";
 import codeSage from "../../Assets/Projects/codeSage.png";
 import symptIQ from "../../Assets/Projects/symptiq.png";
+import readmesh from "../../Assets/Projects/readmesh.png";
 
 const projects = [
   {
@@ -26,6 +27,22 @@ const projects = [
     gh: "https://github.com/anujchauhann09/clinical-narrative-platform",
     demo: "https://symptiq.vercel.app",
     badge: "Healthcare AI",
+  },
+  {
+    img: readmesh,
+    title: "readmesh",
+    desc: "Turns any public GitHub repo into a beautiful, explorable reading experience with AI summaries, beginner-mode rewrites, translations, and repo-aware RAG chat.",
+    tags: [
+      "Next.js",
+      "Express",
+      "PostgreSQL",
+      "Gemini",
+      "Pinecone",
+      "RAG"
+    ],
+    gh: "https://github.com/anujchauhann09/readmesh",
+    demo: "https://readmesh.vercel.app",
+    badge: "Docs · AI",
   },
   {
     img: employrix,
