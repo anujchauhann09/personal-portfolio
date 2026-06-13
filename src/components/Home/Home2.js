@@ -7,6 +7,14 @@ const fadeUp = {
 
 const experiences = [
   {
+    role: "Associate Software Engineer",
+    company: "Nayanic Private Limited",
+    duration: "May 2026 – Present",
+    desc: "Building backend systems for healthcare products. Designing and developing FastAPI services with a focus on clean architecture and scalable system design. Working with DICOM medical imaging workflows, event-driven pipelines using NATS JetStream for reliable messaging, and lightweight SQLite-backed data layers to deliver fast, dependable clinical software.",
+    metrics: ["Healthcare Systems", "Event-Driven Architecture", "DICOM Imaging"],
+    tags: ["Python", "FastAPI", "System Design", "NATS JetStream", "DICOM", "SQLite"],
+  },
+  {
     role: "Software Engineering Intern",
     company: "InnovLogic Services",
     duration: "Feb 2025 – Jul 2025",

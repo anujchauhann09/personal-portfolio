@@ -1,12 +1,12 @@
 # Personal Portfolio – Anuj Chauhan
 
 This is my personal portfolio website built using **React**.  
-It showcases my skills, projects, and background as an aspiring Software Engineer.
+It showcases my skills, projects, and background as a Associate Software Engineer.
 
 ## About Me
 
-I am **Anuj Chauhan** from **Uttarakhand, India**, currently pursuing my  
-**Master of Computer Applications (MCA)** at **Graphic Era University**.
+I am **Anuj Chauhan** from **Uttarakhand, India**, an  
+**Master of Computer Applications (MCA)** graduate from **Graphic Era University**.
 
 I am interested in **backend and full-stack development** and enjoy building
 scalable applications, REST APIs, and real-world projects.

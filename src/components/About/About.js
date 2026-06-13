@@ -90,9 +90,9 @@ function About() {
         {/* Text */}
         <div className="about-text">
           <p>
-            Hey, I'm <strong>Anuj Chauhan</strong> — a aspiring software engineer from{" "}
-            <strong>Uttarakhand, India</strong>, currently pursuing my{" "}
-            <strong>MCA at Graphic Era University</strong>.
+            Hey, I'm <strong>Anuj Chauhan</strong> — a Associate Software Engineer from{" "}
+            <strong>Uttarakhand, India</strong>, and an{" "}
+            <strong>MCA graduate from Graphic Era University</strong>.
           </p>
           <p>
             I'm drawn to the intersection of <strong>backend engineering</strong> and{" "}

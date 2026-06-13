@@ -84,13 +84,13 @@ function Home() {
 
         <div className="hero-content">
           <div>
-            <motion.div
+            {/* <motion.div
               className="hero-tag"
               variants={fadeUp} initial="hidden" animate="show" custom={0}
             >
               <span className="hero-tag-dot" />
               Available for opportunities
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               className="hero-name"
@@ -105,7 +105,7 @@ function Home() {
               className="hero-title"
               variants={fadeUp} initial="hidden" animate="show" custom={2}
             >
-              Aspiring Software Engineer
+              Associate Software Engineer
             </motion.div>
 
             <motion.p
@@ -113,7 +113,7 @@ function Home() {
               variants={fadeUp} initial="hidden" animate="show" custom={3}
             >
               I build scalable backend systems, AI-powered applications, and
-              full-stack products. MCA student at Graphic Era University,
+              full-stack products. MCA graduate from Graphic Era University,
               focused on clean architecture and real-world impact.
             </motion.p>
 
